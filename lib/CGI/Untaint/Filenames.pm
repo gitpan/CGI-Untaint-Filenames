@@ -4,7 +4,7 @@ use strict;
 BEGIN {
 	use Exporter ();
 	use vars qw ($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	$VERSION     = 0.1;
+	$VERSION     = 0.2;
 	@ISA         = qw (Exporter);
 	#Give a hoot don't pollute, do not export more than needed by default
 	@EXPORT      = qw ();
@@ -86,7 +86,7 @@ Two groups of characters: those valid anywhere and those valid only at the end o
 
 =cut
 # qr/^[\w\+\[\]\^#\/_]*[\$\%!]$/ ;
- qr/^([\w\+_\040\#\[\]\/\-\^,]+)$/ ;
+ qr/^([\w\+_\040\#\[\]\/\-\^,.]+)$/ ;
 }
 
 

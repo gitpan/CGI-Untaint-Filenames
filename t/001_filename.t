@@ -17,6 +17,9 @@ push @extractable,"bar";
 push @extractable, "/var";
 #case counts! this is a UNIX name!
 push @extractable,"/Opt";
+push @extractable,"/a/b/c/";
+push @extractable,"/a/B/c/";
+push @extractable,"a.txt";
 #more complex.Throw in a leading double slash.
 push @extractable, "//this/is/a/very/deeply/nested/name/indeed/why/would/you/do/such/a/thing/superfragilisticexpialodocius/antidisestablishmentiarianism";
 #blanks in unix names are a PITA but legal. Bad idea but since used by e.g. win32 they find their way into samba-exported filesystems
@@ -32,6 +35,7 @@ push @extractable,"#foo"; # tricky; at the command line this has to be quoted to
 #push @extractable,"foo\$";	# $ only at end of the name.
 #push @extractable,"foo\%"; #only at end of name
 push @extractable,"^foo";
+
 #illegal names testing. Bad people put shell escapes and so on into filenames.
 my @invalid; #= qw/!foo |foo  &foo foo& foo; ;foo (foo foo(bar)  )baz </proc >/boot {meta }meta {meta}  %pooh ful%    $x x? ?x @host joe@  *baby baby* fragment; ;fragged/;
 push @invalid, "foo\!baz";
