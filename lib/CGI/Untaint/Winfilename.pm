@@ -1,10 +1,10 @@
-package CGI::Untaint::Filenames;
+package CGI::Untaint::Winfilename;
 use strict;
 
 BEGIN {
 	use Exporter ();
 	use vars qw ($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	$VERSION     = 0.3;
+	$VERSION     = 0.1;
 	@ISA         = qw (Exporter);
 	#Give a hoot don't pollute, do not export more than needed by default
 	@EXPORT      = qw ();
@@ -17,18 +17,18 @@ use base 'CGI::Untaint::object';
 
 =head1 NAME
 
-CGI::Untaint::Filenames - CGI::Untaint::Filenames - untaint filename values from CGI programs
+CGI::Untaint::Winfilename - CGI::Untaint::Winfilename - untaint Windows filename values from CGI programs
 
 =head1 SYNOPSIS
 
-  use CGI::Untaint::Filenames;
+  use CGI::Untaint::Winfilename;
   my $handler = CGI::Untaint->new( $q->Vars() );
-  my $filename = $handler->extract( -as_filename => 'some_feature' );
+  my $filename = $handler->extract( -as_winfilename => 'some_feature' );
 
 
 
 =head1 DESCRIPTION
-This input handler verifies that it has a a valid (UNIX) filename. It provides the regex and a subroutine for a handler.
+This input handler verifies that it has a a valid (Windows) filename. It provides the regex and a subroutine for a handler.
 Extensive test cases are provided.
 
 =head1 INSTALLATION
@@ -71,7 +71,7 @@ LICENSE file included with this module.
 
 =head1 SEE ALSO
 
-perl(1). CGI::Untaint, Test::CGI::Untaint
+perl(1). CGI::Untaint, CGI::Untaint::Filenames, Test::CGI::Untaint
 
 =cut
 
@@ -86,7 +86,7 @@ Two groups of characters: those valid anywhere and those valid only at the end o
 
 =cut
 # qr/^[\w\+\[\]\^#\/_]*[\$\%!]$/ ;
- qr  /(^[\w\+_\040\#\(\)\{\}\[\]\/\-\^,\.:;&%@\\~]+\$?$)/  ;
+qr  /^(([a-zA-Z]:)?\\?[\w\+_\040\(\)\{\}\[\]\/\-\^,\.;&%@\$!\\~\#]+)$/;
 }
 
 

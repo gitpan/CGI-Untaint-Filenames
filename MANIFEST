@@ -1,8 +1,9 @@
 Build.PL
 Changes
 lib/CGI/Untaint/Filenames.pm
+lib/CGI/Untaint/Winfilename.pm
 LICENSE
-MANIFEST
+MANIFEST			This list of files
 META.yml
 README
 t/001_filename.t
